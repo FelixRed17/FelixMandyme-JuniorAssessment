@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">FelixMandyme-JuniorAssessment</string>
     <string name="city">Sandton city</string>
+    <string name="text_box_title">Task title</string>
+    <string name="addScreen">Add Todo</string>
+    <string name="TodoApp">Todo</string>
 </resources>

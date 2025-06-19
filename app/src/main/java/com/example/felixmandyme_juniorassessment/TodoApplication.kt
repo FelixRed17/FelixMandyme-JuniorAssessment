@@ -6,8 +6,9 @@ import com.example.felixmandyme_juniorassessment.data.DefaultAppContainer
 
 class TodoApplication: Application() {
     lateinit var container: AppContainer
+
     override fun onCreate() {
         super.onCreate()
-        container = DefaultAppContainer()
+        container = DefaultAppContainer(this)
     }
 }
