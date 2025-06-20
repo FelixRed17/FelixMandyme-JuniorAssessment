@@ -28,6 +28,8 @@ interface TasksDao {
     @Query("SELECT * FROM tasks WHERE complete = true")
     fun getAllTasksComplete(): Flow<List<Tasks>>
 
+    @Query("SELECT COUNT(*) FROM tasks WHERE complete = false")
+    fun getAllTasksIncompleteCount(): Flow<Int>
 
 
 }

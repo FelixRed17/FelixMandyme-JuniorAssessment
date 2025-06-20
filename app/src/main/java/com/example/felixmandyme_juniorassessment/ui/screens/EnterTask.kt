@@ -3,11 +3,17 @@ package com.example.felixmandyme_juniorassessment.ui.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.felixmandyme_juniorassessment.R
 import com.example.felixmandyme_juniorassessment.data.TaskDetails
+import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.TaskFormViewModel
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.TaskUiState
 import kotlinx.coroutines.launch
@@ -36,10 +43,49 @@ fun EnterTask(
             coroutineScope.launch {
                     viewModel.saveItem()
                     navigateUp()
+
             }
         }
     )
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun EnterTaskBottomSheet(
+    viewModel: TaskFormViewModel = viewModel(factory = TaskFormViewModel.Factory),
+    showBottomSheet: MutableState<Boolean>
+){
+    val coroutineScope = rememberCoroutineScope()
+    val sheetState = rememberModalBottomSheetState()
+    LaunchedEffect(Unit) {
+        sheetState.show()
+    }
+    ModalBottomSheet(
+        onDismissRequest = {
+            coroutineScope.launch {
+                sheetState.hide()
+                showBottomSheet.value = false
+            }
+        },
+        sheetState = sheetState
+    ) {
+        TaskForm(
+            taskUiState = viewModel.taskUiState,
+            onValueChange = viewModel::updateUiState,
+            onSaveClick = {
+                coroutineScope.launch {
+                    viewModel.saveItem()
+                    sheetState.hide()
+                }.invokeOnCompletion {
+                    if (!sheetState.isVisible) {
+                        showBottomSheet.value = false
+                    }
+                }
+            }
+        )
+    }
+}
+
 
 
 @Composable
@@ -50,7 +96,8 @@ fun TaskForm(
     modifier: Modifier = Modifier
 ){
     Column(
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth()
+            .padding(bottom = 100.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
