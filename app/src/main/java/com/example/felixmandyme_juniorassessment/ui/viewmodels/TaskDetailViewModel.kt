@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.felixmandyme_juniorassessment.TodoApplication
@@ -15,11 +14,9 @@ import com.example.felixmandyme_juniorassessment.data.Tasks
 import com.example.felixmandyme_juniorassessment.data.TasksRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.filterNot
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
 
 data class TaskDetailUiState(val taskDetails: TaskDetails = TaskDetails())
 
@@ -52,9 +49,6 @@ class TaskDetailViewModel(private val tasksRepository: TasksRepository, savedSta
         tasksRepository.deleteTask(taskDetailUiState.value.taskDetails.toTasks())
     }
 
-    suspend fun updateTask(){
-        tasksRepository.updateTask(taskDetailUiState.value.taskDetails.toTasks())
-    }
 
 }
 

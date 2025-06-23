@@ -23,47 +23,33 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.felixmandyme_juniorassessment.R
 import com.example.felixmandyme_juniorassessment.data.TaskDetails
-import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
+import com.example.felixmandyme_juniorassessment.data.Tasks
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.TaskFormViewModel
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.TaskUiState
+import com.example.felixmandyme_juniorassessment.ui.viewmodels.toTaskDetails
 import kotlinx.coroutines.launch
 
-@Composable
-fun EnterTask(
-    viewModel: TaskFormViewModel = viewModel(factory = TaskFormViewModel.Factory),
-    navigateUp: () -> Unit
-){
-
-    val coroutineScope = rememberCoroutineScope()
-
-    TaskForm(
-        taskUiState = viewModel.taskUiState,
-        onValueChange = viewModel::updateUiState,
-        onSaveClick = {
-            coroutineScope.launch {
-                    viewModel.saveItem()
-                    navigateUp()
-
-            }
-        }
-    )
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EnterTaskBottomSheet(
     viewModel: TaskFormViewModel = viewModel(factory = TaskFormViewModel.Factory),
-    showBottomSheet: MutableState<Boolean>
+    showBottomSheet: MutableState<Boolean>,
+    existingTask: Tasks? = null,
 ){
     val coroutineScope = rememberCoroutineScope()
     val sheetState = rememberModalBottomSheetState()
-    LaunchedEffect(Unit) {
+    LaunchedEffect(existingTask) {
+        existingTask?.let {
+            viewModel.updateUiState(it.toTaskDetails())
+        }
         sheetState.show()
     }
     ModalBottomSheet(
         onDismissRequest = {
             coroutineScope.launch {
                 sheetState.hide()
+                viewModel.clearUiState()
                 showBottomSheet.value = false
             }
         },
@@ -76,6 +62,7 @@ fun EnterTaskBottomSheet(
                 coroutineScope.launch {
                     viewModel.saveItem()
                     sheetState.hide()
+                    viewModel.clearUiState()
                 }.invokeOnCompletion {
                     if (!sheetState.isVisible) {
                         showBottomSheet.value = false
@@ -112,12 +99,12 @@ fun TaskForm(
             value = taskUiState.taskDetails.description,
             onValueChange = {onValueChange(taskUiState.taskDetails.copy(description = it))},
             label = { Text(stringResource(R.string.text_box_title)) },
-            placeholder = { Text("Title") },
+            placeholder = { Text("Description") },
             singleLine = false,
         )
         Spacer(modifier = Modifier.padding(8.dp))
         Button(onClick = onSaveClick) {
-            Text(text = "Add Task")
+            Text(stringResource(R.string.save_task))
         }
     }
 

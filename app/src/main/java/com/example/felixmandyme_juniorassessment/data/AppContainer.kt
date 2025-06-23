@@ -1,7 +1,6 @@
 package com.example.felixmandyme_juniorassessment.data
 
 import android.content.Context
-import android.util.Log
 import com.example.felixmandyme_juniorassessment.network.WeatherApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json

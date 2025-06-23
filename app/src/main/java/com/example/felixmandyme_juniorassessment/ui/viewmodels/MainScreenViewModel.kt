@@ -33,6 +33,14 @@ class MainScreenViewModel(private val tasksRepository: TasksRepository):ViewMode
         initialValue = MainScreenUiState()
     )
 
+    val completeUiState: StateFlow<MainScreenUiState> = tasksRepository.getAllTasksCompleted().map {
+        MainScreenUiState(it)
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+        initialValue = MainScreenUiState()
+    )
+
     fun markTaskDone(task: Tasks, complete: Boolean) {
         viewModelScope.launch {
             tasksRepository.updateTask(task.copy(complete = complete))

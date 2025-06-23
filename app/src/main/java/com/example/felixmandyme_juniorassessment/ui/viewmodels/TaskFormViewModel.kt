@@ -1,13 +1,11 @@
 package com.example.felixmandyme_juniorassessment.ui.viewmodels
 
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
-import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.felixmandyme_juniorassessment.TodoApplication
@@ -24,11 +22,20 @@ class TaskFormViewModel(private val tasksRepository: TasksRepository): ViewModel
         private set
 
     suspend fun saveItem(){
-        tasksRepository.insertTask(taskUiState.taskDetails.toTasks())
+        val task = taskUiState.taskDetails.toTasks()
+        if (task.id == 0) {
+            tasksRepository.insertTask(task)
+        } else {
+            tasksRepository.updateTask(task)
+        }
     }
 
     fun updateUiState(taskDetails: TaskDetails){
         taskUiState = TaskUiState(taskDetails)
+    }
+
+    fun clearUiState() {
+        taskUiState = TaskUiState()
     }
 
     companion object{

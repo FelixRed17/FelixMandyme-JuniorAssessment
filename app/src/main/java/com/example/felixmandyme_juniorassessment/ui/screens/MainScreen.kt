@@ -16,23 +16,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -40,60 +33,28 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.felixmandyme_juniorassessment.data.Tasks
-import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.WeatherViewModel
 
 @Composable
 fun MainScreen(
-    viewModel: MainScreenViewModel = viewModel(factory = MainScreenViewModel.Factory),
-    onCardClick: (Tasks) -> Unit,
-){
 
-    val mainScreenUiState by viewModel.mainScreenUiState.collectAsState()
-    val taskCount by viewModel.taskSum.collectAsState()
+){
+    val selectedTask = remember { mutableStateOf<Tasks?>(null) }
+
     val weatherViewModel: WeatherViewModel = viewModel(
         factory = WeatherViewModel.Factory
     )
     val showBottomSheet = remember { mutableStateOf(false) }
     Scaffold(
-        bottomBar = {
-            BottomAppBar{
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    IconButton(
-                        onClick = {
-
-                        },
-                        modifier = Modifier.size(60.dp)
-                    ) {
-                        BadgedBox(badge = { Badge{ Text("$taskCount")} },
-                            ) {
-                            Icon(
-                                imageVector = Icons.Default.MoreVert,
-                                contentDescription = "Home",
-                                modifier = Modifier.size(35.dp),
-                            )
-                        }
-                    }
-                    IconButton(onClick =  {showBottomSheet.value = true},  modifier = Modifier.size(60.dp)) {
-                        Icon(imageVector = Icons.Filled.Add, contentDescription = "Add Task", modifier = Modifier.size(35.dp))
-                    }
-                    IconButton(onClick = {
-
-                    },
-                            modifier = Modifier.size(60.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.CheckCircle,
-                            contentDescription = "Completed Task",
-                            modifier = Modifier.size(35.dp)
-                        )
-                    }
-                }
+        floatingActionButton ={
+            FloatingActionButton(onClick =
+                {
+                    showBottomSheet.value = true
+                    selectedTask.value = null
+                }) {
+                Icon(imageVector = Icons.Filled.Add, contentDescription = "Add Task", modifier = Modifier.size(35.dp))
             }
-        }
+        },
     ) {innerpadding ->
         Surface(
             modifier = Modifier
@@ -102,14 +63,16 @@ fun MainScreen(
             Column {
                 WeatherCard(weatherUiState = weatherViewModel.weatherUiState)
                 Spacer(modifier = Modifier.padding(5.dp))
-                MainScreenContent(
-                    taskList = mainScreenUiState.tasklist,
-                    onTaskClick = onCardClick,
-                    taskComplete = {task, isChecked -> viewModel.markTaskDone(task, isChecked)}
-                )
+                SegmentedButtonContent(onTaskClick = { task ->
+                    selectedTask.value = task
+                    showBottomSheet.value = true
+                })
             }
             if(showBottomSheet.value){
-                EnterTaskBottomSheet(showBottomSheet = showBottomSheet)
+                EnterTaskBottomSheet(
+                    showBottomSheet = showBottomSheet,
+                    existingTask = selectedTask.value
+                )
             }
         }
     }
@@ -130,7 +93,6 @@ fun MainScreenContent(
                 text = "No task, Tap + below to add task"
             )
         }else{
-
             LazyColumn(
                 contentPadding = contentPadding
             ) {
@@ -145,9 +107,9 @@ fun MainScreenContent(
                                 interactionSource = remember { MutableInteractionSource() },
                                 indication = LocalIndication.current
                             ) {
+
                                 onTaskClick(task)
                             }
-
                     )
                 }
             }

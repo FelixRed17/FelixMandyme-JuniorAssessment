@@ -4,4 +4,5 @@
     <string name="text_box_title">Task title</string>
     <string name="addScreen">Add Todo</string>
     <string name="TodoApp">Todo</string>
+    <string name="save_task">Save Task</string>
 </resources>
