@@ -3,8 +3,7 @@
 A minimalist ToDo application built with Jetpack Compose, featuring integrated real-time weather data from WeatherAPI. The app is designed with simplicity in mind — no screen navigation — and offers a seamless task experience via a ModalBottomSheet and a TabRow filter.
 
 # 📸 Screenshots
-![](https://github.com/FelixRed17/FelixMandyme-JuniorAssessment/blob/main/Screenshot%202025-06-24%20at%2014.43.40.png)
-![](https://github.com/FelixRed17/FelixMandyme-JuniorAssessment/blob/main/Screenshot%202025-06-24%20at%2014.44.03.png)
+![](https://github.com/FelixRed17/FelixMandyme-JuniorAssessment/blob/main/Screenshot%202025-06-24%20at%2014.43.40.png) ![](https://github.com/FelixRed17/FelixMandyme-JuniorAssessment/blob/main/Screenshot%202025-06-24%20at%2014.44.03.png)
 ![](https://github.com/FelixRed17/FelixMandyme-JuniorAssessment/blob/main/Screenshot%202025-06-24%20at%2014.48.07.png)
 ![](https://github.com/FelixRed17/FelixMandyme-JuniorAssessment/blob/main/Screenshot%202025-06-24%20at%2014.48.28.png)
 
