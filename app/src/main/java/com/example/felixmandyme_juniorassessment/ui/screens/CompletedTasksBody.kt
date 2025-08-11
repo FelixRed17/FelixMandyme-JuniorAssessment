@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.example.felixmandyme_juniorassessment.data.Tasks
 
 @Composable
-fun CompletedTasksMainContent( taskList: List<Tasks>, onTaskClick: (Tasks) -> Unit){
+fun CompletedTasksBody( taskList: List<Tasks>, onTaskClick: (Tasks) -> Unit){
     Column {
         if(taskList.isEmpty()) {
             Text(
@@ -37,7 +37,7 @@ fun CompletedTasksMainContent( taskList: List<Tasks>, onTaskClick: (Tasks) -> Un
         }else{
             LazyColumn {
                 items(items = taskList, key = {it.id}) { task ->
-                    CompletedTask(
+                    CompletedTaskCard(
                         tasks = task,
                         modifier = Modifier.clickable(
                             interactionSource = remember { MutableInteractionSource() },
@@ -54,7 +54,7 @@ fun CompletedTasksMainContent( taskList: List<Tasks>, onTaskClick: (Tasks) -> Un
 
 
 @Composable
-fun CompletedTask(tasks: Tasks, modifier: Modifier = Modifier){
+fun CompletedTaskCard(tasks: Tasks, modifier: Modifier = Modifier){
     Card(
         modifier = modifier.fillMaxWidth()
             .padding(10.dp),

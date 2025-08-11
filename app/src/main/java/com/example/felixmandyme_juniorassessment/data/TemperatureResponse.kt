@@ -4,25 +4,9 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class WeatherInfo(
+data class TemperatureResponse(
     val location: Location,
     val current: Current,
-)
-@Serializable
-data class AstronomyInfo(
-    val location: Location,
-    val astronomy: AstronomyDetail
-)
-
-@Serializable
-data class AstronomyDetail(
-    val astro: Astronomy
-)
-
-@Serializable
-data class Astronomy(
-    val sunrise: String,
-    val sunset: String
 )
 
 @Serializable

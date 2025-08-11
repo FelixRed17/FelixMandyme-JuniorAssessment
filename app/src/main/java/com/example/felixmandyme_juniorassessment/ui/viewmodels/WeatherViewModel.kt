@@ -12,17 +12,18 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import coil.network.HttpException
 import com.example.felixmandyme_juniorassessment.TodoApplication
-import com.example.felixmandyme_juniorassessment.data.AstronomyInfo
-import com.example.felixmandyme_juniorassessment.data.WeatherInfo
+import com.example.felixmandyme_juniorassessment.data.SunriseSunsetResponse
+import com.example.felixmandyme_juniorassessment.data.TemperatureResponse
 import com.example.felixmandyme_juniorassessment.data.WeatherRepository
 import kotlinx.coroutines.launch
 import okio.IOException
 
 sealed interface WeatherUiState{
-    data class Success(val weatherInfo: WeatherInfo, val astronomy: AstronomyInfo): WeatherUiState
+    data class Success(val weatherInfo: TemperatureResponse, val astronomy: SunriseSunsetResponse): WeatherUiState
     object Error: WeatherUiState
     object Load: WeatherUiState
 }
+
 class WeatherViewModel(private val weatherRepository: WeatherRepository): ViewModel() {
 
     var weatherUiState: WeatherUiState by mutableStateOf(WeatherUiState.Load)

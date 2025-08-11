@@ -31,5 +31,4 @@ interface TasksDao {
     @Query("SELECT COUNT(*) FROM tasks WHERE complete = false")
     fun getAllTasksIncompleteCount(): Flow<Int>
 
-
 }

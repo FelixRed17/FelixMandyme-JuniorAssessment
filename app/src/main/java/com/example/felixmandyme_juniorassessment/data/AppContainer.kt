@@ -16,7 +16,7 @@ class DefaultAppContainer( private val context: Context): AppContainer{
     private val BASE_URL = "https://api.weatherapi.com/"
 
     private val json = Json {
-        ignoreUnknownKeys = true // avoids crashing on unexpected fields
+        ignoreUnknownKeys = true
     }
 
 

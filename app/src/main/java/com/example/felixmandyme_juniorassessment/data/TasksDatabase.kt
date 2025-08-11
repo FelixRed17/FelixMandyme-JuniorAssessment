@@ -19,7 +19,6 @@ abstract class TasksDatabase: RoomDatabase() {
                     .build()
                     .also { Instance = it }
             }
-
         }
     }
 }

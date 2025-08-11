@@ -47,8 +47,6 @@ class TaskFormViewModel(private val tasksRepository: TasksRepository): ViewModel
             }
         }
     }
-
-
 }
 
 fun TaskDetails.toTasks(): Tasks = Tasks(
@@ -57,4 +55,12 @@ fun TaskDetails.toTasks(): Tasks = Tasks(
     description = description,
     complete = complete
 )
+
+fun Tasks.toTaskDetails(): TaskDetails = TaskDetails(
+    id = id,
+    title = title,
+    description = description,
+    complete = complete
+)
+
 

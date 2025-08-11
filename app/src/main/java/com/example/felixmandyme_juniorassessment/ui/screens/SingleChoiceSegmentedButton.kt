@@ -43,13 +43,13 @@ fun SegmentedButtonContent(
         }
 
         when (selectedIndex) {
-            0 -> MainScreenContent(
+            0 -> IncompleteTasksBody(
                 taskList = mainScreenUiState.tasklist,
                 taskComplete = {task, isChecked -> viewModel.markTaskDone(task, isChecked)},
                 onTaskClick = onTaskClick,
                 taskDelete = {task -> viewModel.deleteTask(task)}
             )
-            1 -> CompletedTasksMainContent(completeUiState.tasklist, onCompleteTask)
+            1 -> CompletedTasksBody (completeUiState.tasklist, onCompleteTask)
 
         }
     }

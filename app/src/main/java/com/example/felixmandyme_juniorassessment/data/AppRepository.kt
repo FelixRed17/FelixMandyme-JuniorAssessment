@@ -7,15 +7,15 @@ import java.util.Date
 import java.util.Locale
 
 interface WeatherRepository {
-    suspend fun getWeatherInfo(): WeatherInfo
-    suspend fun getAstronomyInfo(): AstronomyInfo
+    suspend fun getWeatherInfo(): TemperatureResponse
+    suspend fun getAstronomyInfo(): SunriseSunsetResponse
 }
 
 class NetworkWeatherRepository(private val weatherApi: WeatherApi): WeatherRepository{
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     val currentDate = formatter.format(Date())
-    override suspend fun getWeatherInfo(): WeatherInfo = weatherApi.getWeather(apiKey = "7a457d705d554f88b2d75324251706", location = "Sandton")
-    override suspend fun getAstronomyInfo(): AstronomyInfo = weatherApi.getAstronomy(apiKey = "7a457d705d554f88b2d75324251706", location = "Sandton", date = currentDate)
+    override suspend fun getWeatherInfo(): TemperatureResponse = weatherApi.getWeather(apiKey = "7a457d705d554f88b2d75324251706", location = "Sandton")
+    override suspend fun getAstronomyInfo(): SunriseSunsetResponse = weatherApi.getAstronomy(apiKey = "7a457d705d554f88b2d75324251706", location = "Sandton", date = currentDate)
 }
 
 interface TasksRepository{

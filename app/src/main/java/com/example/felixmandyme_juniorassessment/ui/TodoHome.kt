@@ -13,12 +13,8 @@ import androidx.compose.ui.unit.dp
 import com.example.felixmandyme_juniorassessment.ui.screens.MainScreen
 import com.example.felixmandyme_juniorassessment.ui.screens.TopAppBar
 
-
 @Composable
-fun TodoHome(
-
-){
-
+fun TodoHome(){
     Scaffold(
         topBar = { TopAppBar() }
     ){ innerpadding ->
