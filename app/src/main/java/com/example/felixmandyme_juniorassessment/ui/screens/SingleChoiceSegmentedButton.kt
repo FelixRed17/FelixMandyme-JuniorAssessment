@@ -11,7 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.felixmandyme_juniorassessment.data.Tasks
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
 
@@ -19,7 +19,7 @@ import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewMod
 fun SegmentedButtonContent(
     onTaskClick: (Tasks) -> Unit,
     onCompleteTask: (Tasks) -> Unit,
-    viewModel: MainScreenViewModel = viewModel(factory = MainScreenViewModel.Factory)
+    viewModel: MainScreenViewModel = hiltViewModel()
 ) {
     val mainScreenUiState by viewModel.mainScreenUiState.collectAsState()
     val completeUiState by viewModel.completeUiState.collectAsState()

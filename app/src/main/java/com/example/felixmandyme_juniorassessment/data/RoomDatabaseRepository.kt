@@ -1,24 +1,9 @@
 package com.example.felixmandyme_juniorassessment.data
 
-import com.example.felixmandyme_juniorassessment.network.WeatherApi
 import kotlinx.coroutines.flow.Flow
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import javax.inject.Inject
 
-interface WeatherRepository {
-    suspend fun getWeatherInfo(): TemperatureResponse
-    suspend fun getAstronomyInfo(): SunriseSunsetResponse
-}
-
-class NetworkWeatherRepository(private val weatherApi: WeatherApi): WeatherRepository{
-    val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-    val currentDate = formatter.format(Date())
-    override suspend fun getWeatherInfo(): TemperatureResponse = weatherApi.getWeather(apiKey = "7a457d705d554f88b2d75324251706", location = "Sandton")
-    override suspend fun getAstronomyInfo(): SunriseSunsetResponse = weatherApi.getAstronomy(apiKey = "7a457d705d554f88b2d75324251706", location = "Sandton", date = currentDate)
-}
-
-interface TasksRepository{
+interface RoomDatabaseRepository{
     suspend fun insertTask(tasks: Tasks)
     suspend fun updateTask(tasks: Tasks)
     suspend fun deleteTask(tasks: Tasks)
@@ -30,7 +15,7 @@ interface TasksRepository{
 
 }
 
-class RoomTasksRepository(private val tasksDao: TasksDao): TasksRepository{
+class RoomDatabaseRepositoryImpl @Inject constructor(private val tasksDao: TasksDao): RoomDatabaseRepository{
     override suspend fun insertTask(tasks: Tasks) = tasksDao.insert(tasks)
 
     override suspend fun updateTask(tasks: Tasks) = tasksDao.update(tasks)

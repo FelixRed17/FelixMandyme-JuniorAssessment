@@ -5,18 +5,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import coil.network.HttpException
-import com.example.felixmandyme_juniorassessment.TodoApplication
 import com.example.felixmandyme_juniorassessment.data.SunriseSunsetResponse
 import com.example.felixmandyme_juniorassessment.data.TemperatureResponse
 import com.example.felixmandyme_juniorassessment.data.WeatherRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okio.IOException
+import javax.inject.Inject
 
 sealed interface WeatherUiState{
     data class Success(val weatherInfo: TemperatureResponse, val astronomy: SunriseSunsetResponse): WeatherUiState
@@ -24,7 +21,8 @@ sealed interface WeatherUiState{
     object Load: WeatherUiState
 }
 
-class WeatherViewModel(private val weatherRepository: WeatherRepository): ViewModel() {
+@HiltViewModel
+class WeatherViewModel @Inject constructor(private val weatherRepository: WeatherRepository): ViewModel() {
 
     var weatherUiState: WeatherUiState by mutableStateOf(WeatherUiState.Load)
         private set
@@ -48,16 +46,6 @@ class WeatherViewModel(private val weatherRepository: WeatherRepository): ViewMo
 
                 Log.i("api erro" ,"$e")
                 WeatherUiState.Error
-            }
-        }
-    }
-
-    companion object {
-        val Factory: ViewModelProvider.Factory = viewModelFactory {
-            initializer {
-               val application = (this[APPLICATION_KEY] as TodoApplication)
-                val weatherRepository = application.container.weatherRepository
-                WeatherViewModel(weatherRepository = weatherRepository)
             }
         }
     }

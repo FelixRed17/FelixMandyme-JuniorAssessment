@@ -15,7 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.felixmandyme_juniorassessment.data.Tasks
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.WeatherViewModel
@@ -23,10 +23,8 @@ import com.example.felixmandyme_juniorassessment.ui.viewmodels.WeatherViewModel
 @Composable
 fun MainScreen(){
     val selectedTask = remember { mutableStateOf<Tasks?>(null) }
-    val viewModel: MainScreenViewModel = viewModel(factory = MainScreenViewModel.Factory)
-    val weatherViewModel: WeatherViewModel = viewModel(
-        factory = WeatherViewModel.Factory
-    )
+    val viewModel: MainScreenViewModel = hiltViewModel()
+    val weatherViewModel: WeatherViewModel = hiltViewModel()
     val showBottomSheet = remember { mutableStateOf(false) }
     val showAlertDialog = remember { mutableStateOf(false) }
     Scaffold(

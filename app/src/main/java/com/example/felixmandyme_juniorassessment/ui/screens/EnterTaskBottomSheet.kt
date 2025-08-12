@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.felixmandyme_juniorassessment.R
 import com.example.felixmandyme_juniorassessment.data.TaskDetails
 import com.example.felixmandyme_juniorassessment.data.Tasks
@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EnterTaskBottomSheet(
-    viewModel: TaskFormViewModel = viewModel(factory = TaskFormViewModel.Factory),
+    viewModel: TaskFormViewModel = hiltViewModel(),
     showBottomSheet: MutableState<Boolean>,
     existingTask: Tasks? = null,
 ){
