@@ -14,4 +14,14 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="apiError">Error loading weather</string>
+
+    <string name="onBoardingTitleScreenOne">Welcome to TaskWeather</string>
+    <string name="onBoardingDescriptionScreenOne">Plan your day with ease. Track your tasks and get weather updates tailored to your location.</string>
+    <string name="onBoardingTitleScreenTwo">Why we need your location</string>
+    <string name="onBoardingDescriptionScreenTwo">Your location lets us give you accurate temperature, sunrise, and sunset times, so you can plan tasks at the best time of day.</string>
+    <string name="onBoardingTitleScreenThree">Enable Location Access</string>
+    <string name="onBoardingDescriptionScreenThree">We only use your location to give you the most relevant weather insights. Allow access to get started with smarter task planning.</string>
+
+    <string name="nextButton">Next</string>
+    <string name="enableLocationButton">Enable Location</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.felixmandyme_juniorassessment.di
 
+import com.example.felixmandyme_juniorassessment.data.DataStoreRepository
+import com.example.felixmandyme_juniorassessment.data.DataStoreRepositoryImpl
 import com.example.felixmandyme_juniorassessment.data.NetworkWeatherRepository
 import com.example.felixmandyme_juniorassessment.data.RoomDatabaseRepository
 import com.example.felixmandyme_juniorassessment.data.RoomDatabaseRepositoryImpl
@@ -25,4 +27,10 @@ abstract class AppModuleBind {
     abstract fun bindRoomDatabaseRepository(
         impl: RoomDatabaseRepositoryImpl
     ): RoomDatabaseRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindDataStoreRepository(
+        impl: DataStoreRepositoryImpl
+    ): DataStoreRepository
 }

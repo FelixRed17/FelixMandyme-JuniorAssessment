@@ -14,9 +14,6 @@ navigationComposeJvmstubs = "2.9.0"
 uiTextGoogleFonts = "1.8.3"
 
 nav3Core = "1.0.0-alpha01"
-lifecycleViewmodelNav3 = "1.0.0-alpha01"
-kotlinSerialization = "2.1.21"
-kotlinxSerializationCore = "1.8.1"
 material3AdaptiveNav3 = "1.0.0-alpha06"
 
 [libraries]
@@ -47,7 +44,7 @@ androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", vers
 # Note: The Material3 adaptive layouts library for Navigation 3 is currently
 # only available in snapshot builds. Follow the instructions at androidx.dev to
 # add the snapshot builds repository to your project.
-androidx-material3-adaptive-navigation3 = { group = "androidx.compose.material3.adaptive", name = "adaptive-navigation3", version.ref = "material3AdaptiveNav3" }
+androidx-material3-adaptive-navigation-suite = { group = "androidx.compose.material3", name = "material3-adaptive-navigation-suite", version.ref = "material3AdaptiveNav3" }
 
 
 [plugins]

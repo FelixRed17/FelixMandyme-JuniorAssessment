@@ -21,7 +21,7 @@ val apiKey: String = localProperties.getProperty("API_KEY") ?: ""
 
 android {
     namespace = "com.example.felixmandyme_juniorassessment"
-    compileSdk = 35
+    compileSdk = 36
 
     buildFeatures{
         buildConfig = true
@@ -99,7 +99,10 @@ dependencies {
     //Navigation 3
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.navigation3.runtime)
-    implementation(libs.androidx.material3.adaptive.navigation3)
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
+
+    //Datastore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
