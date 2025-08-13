@@ -91,14 +91,14 @@ fun TaskForm(
             value = taskUiState.taskDetails.title,
             onValueChange = {onValueChange(taskUiState.taskDetails.copy(title = it))},
             label = { Text(stringResource(R.string.text_box_title)) },
-            placeholder = { Text("Title") },
+            placeholder = { Text(stringResource(R.string.title)) },
             singleLine = true,
         )
         OutlinedTextField(
             value = taskUiState.taskDetails.description,
             onValueChange = {onValueChange(taskUiState.taskDetails.copy(description = it))},
             label = { Text(stringResource(R.string.text_box_title)) },
-            placeholder = { Text("Description") },
+            placeholder = { Text(stringResource(R.string.description)) },
             singleLine = false,
         )
         Spacer(modifier = Modifier.padding(8.dp))

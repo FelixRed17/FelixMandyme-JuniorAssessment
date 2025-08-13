@@ -22,9 +22,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.example.felixmandyme_juniorassessment.R
 import com.example.felixmandyme_juniorassessment.data.Tasks
 
 @Composable
@@ -32,7 +34,7 @@ fun CompletedTasksBody( taskList: List<Tasks>, onTaskClick: (Tasks) -> Unit){
     Column {
         if(taskList.isEmpty()) {
             Text(
-                text = "No task, Tap + below to add task"
+                text = stringResource(R.string.no_task)
             )
         }else{
             LazyColumn {
@@ -89,12 +91,12 @@ fun CompletedTaskAlertDialog(
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Completed Task") },
-        text = { Text("What would you like to do with this completed task?") },
+        title = { Text(stringResource(R.string.alertDialogTitle)) },
+        text = { Text(stringResource(R.string.alertDialogDescription)) },
         modifier = modifier,
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Cancel")
+                Text(stringResource(R.string.alertDialogCancel))
             }
         },
         confirmButton = {
@@ -110,7 +112,7 @@ fun CompletedTaskAlertDialog(
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
                 ) {
                     Text(
-                        text = "Delete",
+                        text = stringResource(R.string.alertDialogDelete),
                         color = Color.White
                     )
                 }
@@ -121,7 +123,7 @@ fun CompletedTaskAlertDialog(
                         onDismiss()
                     }
                 ) {
-                    Text("Mark Incomplete")
+                    Text(stringResource(R.string.alertDialogMarkIncomplete))
                 }
             }
         })

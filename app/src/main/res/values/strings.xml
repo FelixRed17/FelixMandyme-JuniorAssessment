@@ -5,4 +5,13 @@
     <string name="addScreen">Add Todo</string>
     <string name="TodoApp">Todo</string>
     <string name="save_task">Save Task</string>
+    <string name="no_task">No task, Tap + below to add task</string>
+    <string name="alertDialogTitle">Completed Task</string>
+    <string name="alertDialogDescription">What would you like to do with this completed task?</string>
+    <string name="alertDialogCancel">Cancel</string>
+    <string name="alertDialogDelete">Delete</string>
+    <string name="alertDialogMarkIncomplete">Mark Incomplete</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="apiError">Error loading weather</string>
 </resources>

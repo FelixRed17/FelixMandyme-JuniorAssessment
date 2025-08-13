@@ -20,8 +20,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.example.felixmandyme_juniorassessment.R
 import com.example.felixmandyme_juniorassessment.data.Tasks
 
 @Composable
@@ -37,7 +39,7 @@ fun IncompleteTasksBody(
     ){
         if(taskList.isEmpty()){
             Text(
-                text = "No task, Tap + below to add task"
+                text = stringResource(R.string.no_task)
             )
         }else{
             LazyColumn(
