@@ -5,7 +5,6 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,18 +26,23 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.felixmandyme_juniorassessment.R
 import com.example.felixmandyme_juniorassessment.data.FakeDataStoreRepository
 import com.example.felixmandyme_juniorassessment.data.OnBoardingScreensData
@@ -47,7 +51,8 @@ import com.example.felixmandyme_juniorassessment.ui.viewmodels.OnBoardingViewMod
 
 @Composable
 fun OnBoardingScreens(
-    onBoardingViewModel: OnBoardingViewModel = hiltViewModel()
+    onBoardingViewModel: OnBoardingViewModel = hiltViewModel(),
+    onEnableClick: () -> Unit
 ) {
     val onBoardingScreensData = listOf(
         OnBoardingScreensData.First,
@@ -92,7 +97,10 @@ fun OnBoardingScreens(
 
         FinishButton(
             pagerState = pagerState,
-            onClick = { onBoardingViewModel.saveOnBoardingState(true) }
+            onClick = {
+                onBoardingViewModel.saveOnBoardingState(true)
+                onEnableClick()
+            }
         )
     }
 }
@@ -109,13 +117,28 @@ fun OnBoardingScreenBody(
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
 
-        Image(
+        val composition by rememberLottieComposition(
+            LottieCompositionSpec.RawRes(onBoardingScreensData.animation)
+        )
+
+
+        val progress by animateLottieCompositionAsState(
+            composition,
+            iterations = LottieConstants.IterateForever
+        )
+
+        Box(
             modifier = Modifier
                 .fillMaxWidth(0.7f)
-                .aspectRatio(1f), // Keeps image proportions
-            painter = painterResource(onBoardingScreensData.image),
-            contentDescription = null
-        )
+                .aspectRatio(1f),
+            contentAlignment = Alignment.Center
+        ) {
+            LottieAnimation(
+                composition = composition,
+                progress = { progress },
+                modifier = Modifier.size(200.dp)
+            )
+        }
 
         Text(
             text = stringResource(onBoardingScreensData.title),
@@ -162,10 +185,11 @@ fun FinishButton(
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun OnBoardingPreview(){
     val fakeRepo = remember { FakeDataStoreRepository() }
     val fakeViewModel = remember { OnBoardingViewModel(fakeRepo) }
-    OnBoardingScreens(onBoardingViewModel = fakeViewModel)
+    OnBoardingScreens(onBoardingViewModel = fakeViewModel, onEnableClick = {})
 }

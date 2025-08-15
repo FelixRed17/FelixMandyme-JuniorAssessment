@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.compose.AppTheme
-import com.example.felixmandyme_juniorassessment.ui.TodoHome
+import com.example.felixmandyme_juniorassessment.navigation.NavigationRoot
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppTheme {
-                TodoHome()
+               NavigationRoot()
             }
         }
     }
