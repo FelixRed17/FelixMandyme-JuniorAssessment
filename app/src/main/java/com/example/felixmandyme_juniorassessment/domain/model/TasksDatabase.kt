@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.data
+package com.example.felixmandyme_juniorassessment.domain.model
 
 import android.content.Context
 import androidx.room.Database

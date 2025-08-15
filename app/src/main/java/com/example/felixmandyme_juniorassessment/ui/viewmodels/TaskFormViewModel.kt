@@ -4,9 +4,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.felixmandyme_juniorassessment.data.RoomDatabaseRepository
-import com.example.felixmandyme_juniorassessment.data.TaskDetails
-import com.example.felixmandyme_juniorassessment.data.Tasks
+import com.example.felixmandyme_juniorassessment.domain.repository.RoomDatabaseRepository
+import com.example.felixmandyme_juniorassessment.domain.model.TaskDetails
+import com.example.felixmandyme_juniorassessment.domain.model.Tasks
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

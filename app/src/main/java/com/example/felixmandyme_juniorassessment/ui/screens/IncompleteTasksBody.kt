@@ -24,7 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.felixmandyme_juniorassessment.R
-import com.example.felixmandyme_juniorassessment.data.Tasks
+import com.example.felixmandyme_juniorassessment.domain.model.Tasks
 
 @Composable
 fun IncompleteTasksBody(

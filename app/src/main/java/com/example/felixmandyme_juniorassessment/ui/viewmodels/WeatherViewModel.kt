@@ -7,9 +7,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import coil.network.HttpException
-import com.example.felixmandyme_juniorassessment.data.SunriseSunsetResponse
-import com.example.felixmandyme_juniorassessment.data.TemperatureResponse
-import com.example.felixmandyme_juniorassessment.data.WeatherRepository
+import com.example.felixmandyme_juniorassessment.domain.model.SunriseSunsetResponse
+import com.example.felixmandyme_juniorassessment.domain.model.TemperatureResponse
+import com.example.felixmandyme_juniorassessment.domain.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okio.IOException

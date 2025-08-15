@@ -2,7 +2,7 @@ package com.example.felixmandyme_juniorassessment.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.felixmandyme_juniorassessment.data.DataStoreRepository
+import com.example.felixmandyme_juniorassessment.domain.repository.DataStoreRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
 import kotlinx.coroutines.launch

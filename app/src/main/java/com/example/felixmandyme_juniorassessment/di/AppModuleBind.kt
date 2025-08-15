@@ -1,11 +1,11 @@
 package com.example.felixmandyme_juniorassessment.di
 
-import com.example.felixmandyme_juniorassessment.data.DataStoreRepository
-import com.example.felixmandyme_juniorassessment.data.DataStoreRepositoryImpl
-import com.example.felixmandyme_juniorassessment.data.NetworkWeatherRepository
-import com.example.felixmandyme_juniorassessment.data.RoomDatabaseRepository
-import com.example.felixmandyme_juniorassessment.data.RoomDatabaseRepositoryImpl
-import com.example.felixmandyme_juniorassessment.data.WeatherRepository
+import com.example.felixmandyme_juniorassessment.data.local.DataStoreRepositoryImpl
+import com.example.felixmandyme_juniorassessment.data.local.RoomDatabaseRepositoryImpl
+import com.example.felixmandyme_juniorassessment.data.remote.WeatherRepositoryImpl
+import com.example.felixmandyme_juniorassessment.domain.repository.DataStoreRepository
+import com.example.felixmandyme_juniorassessment.domain.repository.RoomDatabaseRepository
+import com.example.felixmandyme_juniorassessment.domain.repository.WeatherRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ abstract class AppModuleBind {
     @Binds
     @Singleton
     abstract fun bindWeatherRepository(
-        impl: NetworkWeatherRepository
+        impl: WeatherRepositoryImpl
     ): WeatherRepository
 
     @Binds

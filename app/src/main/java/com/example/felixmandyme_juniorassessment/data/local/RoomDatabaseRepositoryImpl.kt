@@ -1,21 +1,13 @@
-package com.example.felixmandyme_juniorassessment.data
+package com.example.felixmandyme_juniorassessment.data.local
 
+import com.example.felixmandyme_juniorassessment.domain.model.Tasks
+import com.example.felixmandyme_juniorassessment.domain.model.TasksDao
+import com.example.felixmandyme_juniorassessment.domain.repository.RoomDatabaseRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-interface RoomDatabaseRepository{
-    suspend fun insertTask(tasks: Tasks)
-    suspend fun updateTask(tasks: Tasks)
-    suspend fun deleteTask(tasks: Tasks)
-
-    fun getTask(id: Int): Flow<Tasks>
-    fun getAllTasksCompleted(): Flow<List<Tasks>>
-    fun getAllTasksIncompleted(): Flow<List<Tasks>>
-    fun getAllTasksIncompleteSum(): Flow<Int>
-
-}
-
-class RoomDatabaseRepositoryImpl @Inject constructor(private val tasksDao: TasksDao): RoomDatabaseRepository{
+class RoomDatabaseRepositoryImpl @Inject constructor(private val tasksDao: TasksDao):
+    RoomDatabaseRepository {
     override suspend fun insertTask(tasks: Tasks) = tasksDao.insert(tasks)
 
     override suspend fun updateTask(tasks: Tasks) = tasksDao.update(tasks)

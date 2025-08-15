@@ -21,8 +21,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.felixmandyme_juniorassessment.R
-import com.example.felixmandyme_juniorassessment.data.TaskDetails
-import com.example.felixmandyme_juniorassessment.data.Tasks
+import com.example.felixmandyme_juniorassessment.domain.model.TaskDetails
+import com.example.felixmandyme_juniorassessment.domain.model.Tasks
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.TaskFormViewModel
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.TaskUiState
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.toTaskDetails

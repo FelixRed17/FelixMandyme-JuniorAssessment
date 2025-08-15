@@ -1,7 +1,7 @@
 package com.example.felixmandyme_juniorassessment.network
 
-import com.example.felixmandyme_juniorassessment.data.SunriseSunsetResponse
-import com.example.felixmandyme_juniorassessment.data.TemperatureResponse
+import com.example.felixmandyme_juniorassessment.domain.model.SunriseSunsetResponse
+import com.example.felixmandyme_juniorassessment.domain.model.TemperatureResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

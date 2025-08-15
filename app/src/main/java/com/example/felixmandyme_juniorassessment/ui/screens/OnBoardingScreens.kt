@@ -44,8 +44,8 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.felixmandyme_juniorassessment.R
-import com.example.felixmandyme_juniorassessment.data.FakeDataStoreRepository
-import com.example.felixmandyme_juniorassessment.data.OnBoardingScreensData
+import com.example.felixmandyme_juniorassessment.domain.repository.FakeDataStoreRepository
+import com.example.felixmandyme_juniorassessment.domain.model.OnBoardingScreensData
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.OnBoardingViewModel
 
 

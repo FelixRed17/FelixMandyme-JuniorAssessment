@@ -5,8 +5,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.dataStoreFile
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
-import com.example.felixmandyme_juniorassessment.data.TasksDao
-import com.example.felixmandyme_juniorassessment.data.TasksDatabase
+import com.example.felixmandyme_juniorassessment.domain.model.TasksDao
+import com.example.felixmandyme_juniorassessment.domain.model.TasksDatabase
 import com.example.felixmandyme_juniorassessment.network.WeatherApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module

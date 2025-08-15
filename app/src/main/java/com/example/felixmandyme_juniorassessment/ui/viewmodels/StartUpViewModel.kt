@@ -3,7 +3,7 @@ package com.example.felixmandyme_juniorassessment.ui.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation3.runtime.NavKey
-import com.example.felixmandyme_juniorassessment.data.DataStoreRepository
+import com.example.felixmandyme_juniorassessment.domain.repository.DataStoreRepository
 import com.example.felixmandyme_juniorassessment.navigation.NavScreens
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

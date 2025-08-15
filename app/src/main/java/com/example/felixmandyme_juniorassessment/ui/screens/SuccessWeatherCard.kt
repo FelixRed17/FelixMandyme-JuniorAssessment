@@ -15,8 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.felixmandyme_juniorassessment.data.SunriseSunsetResponse
-import com.example.felixmandyme_juniorassessment.data.TemperatureResponse
+import com.example.felixmandyme_juniorassessment.domain.model.SunriseSunsetResponse
+import com.example.felixmandyme_juniorassessment.domain.model.TemperatureResponse
 
 @Composable
 fun SuccessWeatherCard(temperatureResponse: TemperatureResponse, sunriseSunsetResponse: SunriseSunsetResponse){

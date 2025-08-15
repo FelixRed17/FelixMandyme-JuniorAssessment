@@ -12,7 +12,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.felixmandyme_juniorassessment.data.Tasks
+import com.example.felixmandyme_juniorassessment.domain.model.Tasks
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
 
 @Composable

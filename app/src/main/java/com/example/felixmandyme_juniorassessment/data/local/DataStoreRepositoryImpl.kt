@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.data
+package com.example.felixmandyme_juniorassessment.data.local
 
 import android.util.Log
 import androidx.datastore.core.DataStore
@@ -6,18 +6,12 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
+import com.example.felixmandyme_juniorassessment.domain.repository.DataStoreRepository
 import jakarta.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import java.io.IOException
-
-
-interface DataStoreRepository{
-    suspend fun saveOnBoardingState(completed: Boolean)
-    val readOnBoardingState: Flow<Boolean>
-}
 
 class DataStoreRepositoryImpl @Inject constructor(
     private val dataStore: DataStore<Preferences>
@@ -46,15 +40,4 @@ class DataStoreRepositoryImpl @Inject constructor(
             val onBoardingState = preferences[onBoardingKey] ?: false
             onBoardingState
         }
-}
-
-class FakeDataStoreRepository: DataStoreRepository{
-    private var completed = false
-
-    override suspend fun saveOnBoardingState(completed: Boolean) {
-        this.completed = completed
-    }
-
-    override val readOnBoardingState: Flow<Boolean> = flowOf(completed)
-
 }

@@ -16,7 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.felixmandyme_juniorassessment.data.Tasks
+import com.example.felixmandyme_juniorassessment.domain.model.Tasks
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
 import com.example.felixmandyme_juniorassessment.ui.viewmodels.WeatherViewModel
 

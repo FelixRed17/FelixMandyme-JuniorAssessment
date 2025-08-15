@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.data
+package com.example.felixmandyme_juniorassessment.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

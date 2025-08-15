@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.data
+package com.example.felixmandyme_juniorassessment.domain.model
 
 data class TaskDetails(
     val id: Int = 0,
