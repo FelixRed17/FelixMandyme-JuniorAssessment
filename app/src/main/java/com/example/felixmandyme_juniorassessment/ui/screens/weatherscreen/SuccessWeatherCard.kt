@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.ui.screens
+package com.example.felixmandyme_juniorassessment.ui.screens.weatherscreen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,7 +19,10 @@ import com.example.felixmandyme_juniorassessment.domain.model.SunriseSunsetRespo
 import com.example.felixmandyme_juniorassessment.domain.model.TemperatureResponse
 
 @Composable
-fun SuccessWeatherCard(temperatureResponse: TemperatureResponse, sunriseSunsetResponse: SunriseSunsetResponse){
+fun SuccessWeatherCard(
+    temperatureResponse: TemperatureResponse,
+    sunriseSunsetResponse: SunriseSunsetResponse
+){
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(bottomStart = 25.dp, bottomEnd = 25.dp),

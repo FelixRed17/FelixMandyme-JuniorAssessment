@@ -17,8 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.felixmandyme_juniorassessment.domain.model.Tasks
-import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
-import com.example.felixmandyme_juniorassessment.ui.viewmodels.WeatherViewModel
+import com.example.felixmandyme_juniorassessment.ui.screens.completetasklistscreen.subcomponents.CompletedTaskAlertDialog
+import com.example.felixmandyme_juniorassessment.ui.screens.entertaskform.maincomponents.EnterTaskBottomSheet
+import com.example.felixmandyme_juniorassessment.ui.screens.tabrowscreen.TabRow
+import com.example.felixmandyme_juniorassessment.ui.screens.weatherscreen.WeatherCard
+import com.example.felixmandyme_juniorassessment.ui.screens.weatherscreen.WeatherViewModel
 
 @Composable
 fun MainScreen(){
@@ -45,7 +48,7 @@ fun MainScreen(){
             Column {
                 WeatherCard(weatherUiState = weatherViewModel.weatherUiState)
                 Spacer(modifier = Modifier.padding(5.dp))
-                SegmentedButtonContent(
+                TabRow(
                     onTaskClick = { task ->
                     selectedTask.value = task
                     showBottomSheet.value = true

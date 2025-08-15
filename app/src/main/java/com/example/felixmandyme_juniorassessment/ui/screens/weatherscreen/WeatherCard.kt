@@ -1,7 +1,6 @@
-package com.example.felixmandyme_juniorassessment.ui.screens
+package com.example.felixmandyme_juniorassessment.ui.screens.weatherscreen
 
 import androidx.compose.runtime.Composable
-import com.example.felixmandyme_juniorassessment.ui.viewmodels.WeatherUiState
 
 @Composable
 fun WeatherCard(weatherUiState: WeatherUiState){

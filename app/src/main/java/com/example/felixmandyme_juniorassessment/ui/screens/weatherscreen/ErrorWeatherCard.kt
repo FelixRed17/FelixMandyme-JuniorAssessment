@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.ui.screens
+package com.example.felixmandyme_juniorassessment.ui.screens.weatherscreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

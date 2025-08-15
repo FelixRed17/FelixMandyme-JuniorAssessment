@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.ui.viewmodels
+package com.example.felixmandyme_juniorassessment.ui.screens.onboardingscreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

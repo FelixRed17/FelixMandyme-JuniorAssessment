@@ -16,9 +16,9 @@ import androidx.navigation3.runtime.rememberSavedStateNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.navigation3.ui.rememberSceneSetupNavEntryDecorator
 import com.example.felixmandyme_juniorassessment.ui.TodoHome
-import com.example.felixmandyme_juniorassessment.ui.screens.OnBoardingScreens
-import com.example.felixmandyme_juniorassessment.ui.screens.SplashScreen
-import com.example.felixmandyme_juniorassessment.ui.viewmodels.StartUpViewModel
+import com.example.felixmandyme_juniorassessment.ui.screens.onboardingscreen.maincomponents.OnBoardingScreens
+import com.example.felixmandyme_juniorassessment.ui.screens.onboardingscreen.subcomponents.SplashScreen
+import com.example.felixmandyme_juniorassessment.ui.screens.onboardingscreen.StartUpViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable

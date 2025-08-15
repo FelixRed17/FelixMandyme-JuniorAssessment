@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.ui.screens
+package com.example.felixmandyme_juniorassessment.ui.screens.tabrowscreen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
@@ -13,10 +13,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.felixmandyme_juniorassessment.domain.model.Tasks
-import com.example.felixmandyme_juniorassessment.ui.viewmodels.MainScreenViewModel
+import com.example.felixmandyme_juniorassessment.ui.screens.completetasklistscreen.maincomponents.CompletedTasksBody
+import com.example.felixmandyme_juniorassessment.ui.screens.incompletetasklistscreen.maincomponents.IncompleteTasksBody
+import com.example.felixmandyme_juniorassessment.ui.screens.MainScreenViewModel
 
 @Composable
-fun SegmentedButtonContent(
+fun TabRow(
     onTaskClick: (Tasks) -> Unit,
     onCompleteTask: (Tasks) -> Unit,
     viewModel: MainScreenViewModel = hiltViewModel()

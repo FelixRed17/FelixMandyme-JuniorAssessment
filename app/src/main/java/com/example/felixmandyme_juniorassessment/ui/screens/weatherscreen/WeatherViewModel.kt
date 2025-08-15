@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.ui.viewmodels
+package com.example.felixmandyme_juniorassessment.ui.screens.weatherscreen
 
 import android.util.Log
 import androidx.compose.runtime.getValue
@@ -16,7 +16,8 @@ import okio.IOException
 import javax.inject.Inject
 
 sealed interface WeatherUiState{
-    data class Success(val weatherInfo: TemperatureResponse, val astronomy: SunriseSunsetResponse): WeatherUiState
+    data class Success(val weatherInfo: TemperatureResponse, val astronomy: SunriseSunsetResponse):
+        WeatherUiState
     object Error: WeatherUiState
     object Load: WeatherUiState
 }

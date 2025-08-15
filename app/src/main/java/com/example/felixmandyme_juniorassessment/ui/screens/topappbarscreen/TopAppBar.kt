@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.ui.screens
+package com.example.felixmandyme_juniorassessment.ui.screens.topappbarscreen
 
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api

@@ -1,4 +1,4 @@
-package com.example.felixmandyme_juniorassessment.ui.screens
+package com.example.felixmandyme_juniorassessment.ui.screens.swipetodeleteorcomplete
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
