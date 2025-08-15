@@ -82,8 +82,6 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     implementation(libs.androidx.ui.text.google.fonts)
-    implementation(libs.androidx.lifecycle.viewmodel.navigation3.android)
-    implementation(libs.play.services.location)
 
     ksp(libs.room.compiler)
 
@@ -105,8 +103,6 @@ dependencies {
 
     //Datastore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
-
-    implementation("com.airbnb.android:lottie-compose:6.4.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

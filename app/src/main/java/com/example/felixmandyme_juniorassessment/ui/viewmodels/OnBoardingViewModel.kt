@@ -1,6 +1,5 @@
 package com.example.felixmandyme_juniorassessment.ui.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.felixmandyme_juniorassessment.data.DataStoreRepository
@@ -15,7 +14,6 @@ class OnBoardingViewModel @Inject constructor(
     fun saveOnBoardingState(completed: Boolean){
         viewModelScope.launch {
             dataStoreRepository.saveOnBoardingState(completed)
-            Log.d("OnBoardingViewModel", "Saved onboarding state: $completed")
         }
     }
 }
