@@ -1,28 +1,28 @@
 package com.example.felixmandyme_juniorassessment.data
 
-import androidx.annotation.DrawableRes
+import androidx.annotation.RawRes
 import androidx.annotation.StringRes
 import com.example.felixmandyme_juniorassessment.R
 
 sealed class OnBoardingScreensData(
-    @DrawableRes val image: Int,
+    @RawRes val image: Int,
     @StringRes val title: Int,
     @StringRes val description: Int
 ){
     object First: OnBoardingScreensData(
-        image = R.drawable.page0,
+        image = R.raw.welcome,
         title = R.string.onBoardingTitleScreenOne,
         description = R.string.onBoardingDescriptionScreenOne
     )
 
     object Second: OnBoardingScreensData(
-        image = R.drawable.page2,
+        image = R.raw.question,
         title = R.string.onBoardingTitleScreenTwo,
         description = R.string.onBoardingDescriptionScreenTwo
     )
 
     object Third: OnBoardingScreensData(
-        image = R.drawable.page3,
+        image = R.raw.location,
         title = R.string.onBoardingTitleScreenThree,
         description = R.string.onBoardingDescriptionScreenThree
     )

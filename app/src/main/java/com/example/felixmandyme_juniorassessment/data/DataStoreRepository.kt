@@ -30,6 +30,7 @@ class DataStoreRepositoryImpl @Inject constructor(
     override suspend fun saveOnBoardingState(completed: Boolean){
         dataStore.edit { preferences ->
             preferences[onBoardingKey] = completed
+
         }
     }
 

@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import coil.network.HttpException
+import com.example.felixmandyme_juniorassessment.data.DataStoreRepository
 import com.example.felixmandyme_juniorassessment.data.SunriseSunsetResponse
 import com.example.felixmandyme_juniorassessment.data.TemperatureResponse
 import com.example.felixmandyme_juniorassessment.data.WeatherRepository
@@ -22,7 +23,10 @@ sealed interface WeatherUiState{
 }
 
 @HiltViewModel
-class WeatherViewModel @Inject constructor(private val weatherRepository: WeatherRepository): ViewModel() {
+class WeatherViewModel @Inject constructor(
+    private val weatherRepository: WeatherRepository,
+    private val dataStoreRepository: DataStoreRepository
+): ViewModel() {
 
     var weatherUiState: WeatherUiState by mutableStateOf(WeatherUiState.Load)
         private set

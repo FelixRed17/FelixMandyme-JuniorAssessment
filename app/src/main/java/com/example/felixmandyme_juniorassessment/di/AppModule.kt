@@ -57,7 +57,7 @@ object AppModule{
     @Singleton
     fun providesDataStore(@ApplicationContext context: Context): DataStore<Preferences>{
         return PreferenceDataStoreFactory.create(
-            produceFile = {context.dataStoreFile("user_prefs")}
+            produceFile = {context.dataStoreFile("user_prefs.preferences_pb")}
         )
     }
 }
