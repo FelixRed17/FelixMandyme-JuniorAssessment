@@ -11,7 +11,5 @@ interface RoomDatabaseRepository{
     fun getTask(id: Int): Flow<Tasks>
     fun getAllTasksCompleted(): Flow<List<Tasks>>
     fun getAllTasksIncompleted(): Flow<List<Tasks>>
-    fun getAllTasksIncompleteSum(): Flow<Int>
-
 }
 

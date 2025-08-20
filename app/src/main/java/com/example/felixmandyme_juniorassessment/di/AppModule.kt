@@ -5,8 +5,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.dataStoreFile
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
-import com.example.felixmandyme_juniorassessment.domain.model.TasksDao
-import com.example.felixmandyme_juniorassessment.domain.model.TasksDatabase
+import com.example.felixmandyme_juniorassessment.data.data_source.TasksDao
+import com.example.felixmandyme_juniorassessment.data.data_source.TasksDatabase
 import com.example.felixmandyme_juniorassessment.network.WeatherApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -22,10 +22,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule{
-
     private val BASE_URL = "https://api.weatherapi.com/"
-
-    private val onBoardingPreferenceName = "onBoardingPreference"
 
     private val json = Json {
         ignoreUnknownKeys = true

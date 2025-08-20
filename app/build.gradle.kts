@@ -83,6 +83,7 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.androidx.lifecycle.viewmodel.navigation3.android)
+    androidTestImplementation(libs.androidx.core.testing)
 
     ksp(libs.room.compiler)
 
@@ -109,6 +110,12 @@ dependencies {
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+
+    //Truth
+    testImplementation("com.google.truth:truth:1.4.4")
+    androidTestImplementation("com.google.truth:truth:1.4.4")
+
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)

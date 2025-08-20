@@ -4,19 +4,28 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-08-15T10:04:38.630960Z">
+        <DropdownSelection timestamp="2025-08-20T17:20:24.620584Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=3437234482003CX" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/felix@glucode.com/.android/avd/Pixel_4_XL.avd" />
             </handle>
           </Target>
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="TaskFormPreview">
+      <SelectionState runConfigName="insertTask()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="OnBoardingPreview">
+      <SelectionState runConfigName="TasksDaoTest">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="updateTask()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="getIncompleteTasks()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="getCompleteTasks()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

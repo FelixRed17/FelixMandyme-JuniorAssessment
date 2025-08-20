@@ -10,8 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import com.example.felixmandyme_juniorassessment.ui.screens.MainScreen
-import com.example.felixmandyme_juniorassessment.ui.screens.topappbarscreen.TopAppBar
+import com.example.felixmandyme_juniorassessment.ui.screens.top_app_bar_screen.TopAppBar
 
 @Composable
 fun TodoHome(){
@@ -24,7 +23,7 @@ fun TodoHome(){
                     start = innerpadding.calculateStartPadding(LayoutDirection.Ltr),
                     end = innerpadding.calculateEndPadding(LayoutDirection.Ltr),
                     bottom = innerpadding.calculateBottomPadding(),
-                    top= 60.dp
+                    top= 20.dp
                 )
                 .fillMaxSize()
         ){
