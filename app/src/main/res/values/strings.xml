@@ -23,6 +23,5 @@
     <string name="onBoardingTitleScreenThree">Enable Location Access</string>
     <string name="onBoardingDescriptionScreenThree">We only use your location to give you the most relevant weather insights. Allow access to get started with smarter task planning.</string>
 
-    <string name="nextButton">Next</string>
     <string name="enableLocationButton">Enable Location</string>
 </resources>
