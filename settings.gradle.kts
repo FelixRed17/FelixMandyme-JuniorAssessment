@@ -21,4 +21,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "FelixMandyme-JuniorAssessment"
 include(":app")
- 
+include(":core:common")
+include(":feature:todo:data")
+include(":feature:todo:domain")
+include(":feature:todo:ui")
+include(":feature:weather:data")
+include(":feature:weather:domain")
+include(":feature:weather:ui")
+include(":core:network")
